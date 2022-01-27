@@ -1,0 +1,95 @@
+#!/bin/ruby
+require 'socket'
+require_relative 'src/help'
+require_relative 'src/scan'
+require_relative 'stats/messages'
+require 'resolv'
+
+ARG_ONE = ARGV[0]
+PARSE_ONE = ARGV[1]
+ARG_TWO = ARGV[2]
+PARSE_TWO = ARGV[3]
+ARG_THRE = ARGV[4]
+PARSE_THRE = ARGV[5]
+
+if ARG_ONE == '-h' || ARG_ONE == '--help'
+  print_help()
+  exit(0)
+end
+
+if ARG_ONE == '-i' || ARG_ONE == '--ip'
+  message_start(PARSE_ONE)
+  top_scan(PARSE_ONE)
+
+elsif ARG_ONE == '-i' || ARG_ONE == '--ip'
+  if ARG_TWO == '-t' || ARG_TWO == '--timeout'
+    if not PARSE_TWO
+      puts "ERROR: Invalid argument!"
+      exit(0)
+    end
+    timeout = PARSE_TWO.to_i
+    scan_time(PARSE_ONE, timeout)
+    scan_timeout(PARSE_ONE, timeout)
+  end
+  message_start(PARSE_ONE)
+  top_scan(PARSE_ONE)
+
+elsif ARG_ONE == '-s' || ARG_ONE == '--simple'
+  if ARG_TWO == '-t' || ARG_TWO == '--timeout'
+    timeout = PARSE_TWO.to_i
+    scan_time(PARSE_ONE, timeout)
+    scan_timeout(PARSE_ONE, timeout)
+  end
+  simple(PARSE_ONE)
+  simple_scan(PARSE_ONE)
+
+elsif ARG_ONE == '-v' || ARG_ONE == '--verbose'
+  if(PARSE_ONE == 'true' || PARSE_ONE == 't')
+    if(ARG_TWO == '-i' ||  ARG_TWO == '--ip')
+      verbose_scan(PARSE_TWO)
+    else
+      puts "ERROR: ARGS -i || --ip REQUIRED!"
+    end
+  elsif(PARSE_ONE == 'false' || PARSE_ONE == 'f')
+    if(ARG_TWO == '-i' ||  ARG_TWO == '--ip')
+      message_start(PARSE_TWO)
+      top_scan(PARSE_TWO)
+    else
+      puts "ERROR: ARGS -i || --ip REQUIRED!"
+    end
+  else
+    puts "ERROR: ARGS -v || --verbose VALUE REQUIRED!"
+  end
+
+elsif ARG_ONE == '-u' || ARG_ONE == '--url'
+  if not PARSE_ONE
+    puts "ERROR: ARGS -u || --url REQUIRED!"
+  end
+  url = PARSE_ONE.to_s
+  if not url.end_with? '/' and not url.include? 'https:'
+    Resolv.each_address(url) do |ip|
+      message_start(ip)
+      top_scan(ip)
+    end
+  end
+  if url.include? 'https:' and not url.end_with? '/'
+    a = url.tr('https://', '')
+    Resolv.each_address(a) do |ip|
+      message_start(ip)
+      top_scan(ip)
+    end
+  end
+  if url.end_with? '/' and url.include? 'https://'
+    a = url.tr('https://', '')
+    Resolv.each_address(a) do |ip|
+      message_start(ip)
+      top_scan(ip)
+    end
+  end
+elsif ARG_ONE == '-V' || ARG_ONE == '--version'
+  puts "This program are in version 1.0v"
+  exit(0)
+else
+  puts "Invalid ARGS"
+  print_help()
+end
