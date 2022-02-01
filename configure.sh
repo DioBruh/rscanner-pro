@@ -31,15 +31,15 @@ if [ $1 == '-r' ] || [ $1 == '--root' ]; then
         chmod +x src/scan
         chmod +x stats/messages
     } || {
-        #echo missing files!
-        #while true; do
-         #   read -p "Do you wish to clone repo again (Y/n)" yn
-          #  case $yn in
-           #     [Yy]* ) cd .. && rm -rf dbuster-pro && git clone "https://github.com/DioBruh/dbuster-pro/"; break;;
-            #    [Nn]* ) exit;;
-             #   * ) exit 1;;
-            #esac
-        #done
+        echo missing files!
+        while true; do
+            read -p "Do you wish to clone repo again (Y/n)" yn
+            case $yn in
+                [Yy]* ) cd .. && rm -rf dbuster-pro && git clone "https://github.com/DioBruh/rscnner-pro/"; break;;
+                [Nn]* ) exit;;
+                * ) exit 1;;
+            esac
+        done
         exit 1
     }
     { # try
