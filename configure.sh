@@ -76,3 +76,4 @@ if [ $1 == '-t' ] || [ $1 == '--termux' ]; then
     }
     echo rscan successfully installed, type: "rscan --help"
 fi
+
