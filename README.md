@@ -92,3 +92,19 @@ scanrb -h                           For show this message
 scanrb -V                           For show program version
 scanrb -C                           For display credits
 ```
+    
+You can scan ports of ip just using:
+```cmd
+rscan -i <ip>
+```
+    
+For use new dns-resolver tool, you can just type:
+```cmd
+rscan --dns-resolver <dns>
+```
+
+For more infs, just type:
+
+```cmd
+rscan --help
+```
