@@ -20,6 +20,8 @@ end
 if ARG_ONE == '-i' || ARG_ONE == '--ip'
   message_start(PARSE_ONE)
   top_scan(PARSE_ONE)
+elsif ARG_ONE != '-i' || ARG_ONE != '--ip'
+	simple_scan(ARG_ONE)
 
 elsif ARG_ONE == '-i' || ARG_ONE == '--ip'
   if ARG_TWO == '-t' || ARG_TWO == '--timeout'
