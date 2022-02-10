@@ -7,6 +7,13 @@ def message_start(ip)
     puts " Starting RSCAN 1.0v in {#{ip}}"    
     sleep(0.3)
 end
+def message_dns(url)
+    print "\033[0;0m["
+    print "\033[1;92m#"
+    print "\033[0;0m]"
+    puts " Starting RSCAN 1.5v in {#{url}}"
+    sleep(0.3)
+end
 def scan_time(ip, timeout)
     message_start(ip)
     print "\033[0;0m["
