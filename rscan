@@ -18,9 +18,25 @@ if ARG_ONE == '-h' || ARG_ONE == '--help'
 end
 if ARG_ONE == "-d" || ARG_ONE == "--dns-resolver"
 	message_dns(PARSE_ONE)
-	Resolv.each_address(PARSE_ONE) do |ip|
-		puts(ip)
-	end
+	url = PARSE_ONE.to_s
+  if not url.end_with? '/' and not url.include? 'https:'
+    Resolv.each_address(url) do |ip|
+      puts(ip)
+    end
+  end
+  if url.include? 'https:' and not url.end_with? '/'
+    a = url.tr('https://', '')
+    Resolv.each_address(a) do |ip|
+      puts(ip)
+    end
+  end
+  if url.end_with? '/' and url.include? 'https://'
+    a = url.tr('https://', '')
+    Resolv.each_address(a) do |ip|
+      puts(ip)
+    end
+  end
+
 	exit(0)
 end
 
