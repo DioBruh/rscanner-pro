@@ -1,12 +1,11 @@
 #!/bin/ruby
-
 # In this file will contains functions for print messages
 
 def message_start(ip)
     print "\033[0;0m["
     print "\033[1;92m#"
     print "\033[0;0m]"
-    puts " Starting RSCAN 1.0v in {#{ip}}"    
+    puts " Starting RSCAN 1.5v in {#{ip}}"    
     sleep(0.3)
 end
 def scan_time(ip, timeout)
@@ -16,6 +15,13 @@ def scan_time(ip, timeout)
     print "\033[0;0m]"
     puts " Starting RSCAN with timeout #{timeout} seconds in target {#{ip}}"
     sleep 0.5
+end
+def message_dns(url)
+    print "\033[0;0m["
+    print "\033[1;92m#"
+    print "\033[0;0m]"
+    puts " Starting RSCAN 1.5v in {#{url}}"
+    sleep(0.3)
 end
 def message_top_ports(ip)
     message_start(ip)
@@ -62,7 +68,7 @@ def simple(ip)
     sleep 0.4
 end
 def version()
-    puts " Rscan are in version 1.0v"
+    puts " Rscan are in version 1.5v"
 end
 def credits()
     puts " Rscan credits: DioBrando, and Josh Washingtom"
