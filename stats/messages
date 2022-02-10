@@ -1,4 +1,5 @@
 #!/bin/ruby
+
 # In this file will contains functions for print messages
 
 def message_start(ip)
