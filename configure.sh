@@ -49,6 +49,7 @@ if [ $1 == '-r' ] || [ $1 == '--root' ]; then
     } || { # catch
         echo -en $Reset"["; echo -en $red"!"; echo -en $Reset"]"; echo -en " You must be root to run the script"; echo -e $Reset ; exit 1;
     }
+    
     echo rscan successfully installed, type: "rscan --help"
 fi
 
