@@ -13,7 +13,8 @@ def print_help()
     usage = 
     'Example: scanrb -i 192.168.0.1      For scan
 scanrb -i 192.168.0.1 -t TIMEOUT    For use timout per seconds
-scanrb -v true -i 192.168.0.1       For use Verbose
+scanrb -v true -i 192.168.0.1	    For use verbose
+scanrb <ip>                         Simples scan no args
 scanrb -h                           For show this message
 scanrb -V                           For show program version
 scanrb -C                           For display credits
