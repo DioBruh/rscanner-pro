@@ -7,6 +7,7 @@ def print_help()
     -v, --verbose           Make the operation more talkative
     -u, --url <url>         Scan from http and get the ip
     -s, --simple            Make the simple and fast scan
+    -d, --dns-resolver      Use Dns-resolver tool
     -V, --version           Show version and quit program
     -C, --credits           Display credits
     '
@@ -14,7 +15,7 @@ def print_help()
     'Example: scanrb -i 192.168.0.1      For scan
 scanrb -i 192.168.0.1 -t TIMEOUT    For use timout per seconds
 scanrb -v true -i 192.168.0.1	    For use verbose
-scanrb <ip>                         Simples scan no args
+scanrb -d <dns>                     For use DNS-RESOLVER tool
 scanrb -h                           For show this message
 scanrb -V                           For show program version
 scanrb -C                           For display credits
