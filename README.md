@@ -12,17 +12,16 @@
 <span>INTRODUCTION</span><br>
 - - - - - - - - - - - - -<br>
 
-RSCANNER is a port-scanner tool inspired in NMAP, Written in `ruby3`. <br>
+RSCANNER is a port-scanner tool inspired in NMAP, Written in `ruby`.<br>
 This program are created by DioBrando and <a href="https://github.com/Josh-Washington">Josh-Washington</a><br>
 If you found any bug in program, report this in <a href="https://github.com/DioBruh/rscanner-pro/issues">issues</a>.<br><br>
-    
+
 <span>- - - - - - - - - - - - -<br></span>
 <span>TERMS OF USE</span><br>
 <span>- - - - - - - - - - - - -<br></span>
     
 When you use this program, you agree not to attack private websites or government organizations<br>
-Only assholes do that
-Any sale or commercialization of this program goes against the rules.<br>
+Only assholes do that<br>
 Neither I nor josh are responsible for misuse of this program.<br>
 So that it is up to the user to use with their responsibility and ethics.<br>
 
@@ -72,7 +71,7 @@ if you're a termux user, just type:<br>
 <span>- - - - - - - - -<br></span>
 
 To compile, configure and install dbuster in windows, just type:<br>
-> IN TESTING! VERSION 1.0V WILL BE INCLUDE WINDOWS<br><br>
+> IN TESTING! VERSION 2.0V WILL BE INCLUDE WINDOWS<br><br>
    
 <span>USING</span><br>
 <span>- - - - - -<br></span><br>
@@ -81,4 +80,15 @@ After you start configure.sh, just type:
 
 ```powershell
 rscan --help
+```
+
+Ouput will be like this:
+```cmd
+Example: scanrb -i 192.168.0.1      For scan
+scanrb -i 192.168.0.1 -t TIMEOUT    For use timout per seconds
+scanrb -v true -i 192.168.0.1	      For use verbose
+scanrb -d                           For use DNS-RESOLVER tool
+scanrb -h                           For show this message
+scanrb -V                           For show program version
+scanrb -C                           For display credits
 ```
